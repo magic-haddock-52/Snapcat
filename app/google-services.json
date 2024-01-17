@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "184682345147",
+    "project_id": "snapcat-63f5b",
+    "storage_bucket": "snapcat-63f5b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:184682345147:android:e150677955298b57acef9e",
+        "android_client_info": {
+          "package_name": "com.example.snapcat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBa23ECgHpMCcVvwMc4nU4qmK0qYQhs_Fc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

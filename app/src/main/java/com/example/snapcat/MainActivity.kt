@@ -1,26 +1,117 @@
 package com.example.snapcat
 
 import android.content.Intent
-import android.graphics.Bitmap
 import android.os.Bundle
-import android.view.Gravity
-import android.view.LayoutInflater
+import android.util.Log
 import android.view.View
-import android.widget.LinearLayout
-import android.widget.PopupWindow
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.auth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.database
 import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.ListResult
-import com.google.firebase.storage.storageMetadata
 
 
 class MainActivity : AppCompatActivity() {
-
     val storage: FirebaseStorage = FirebaseStorage.getInstance()
     var storageRef = storage.reference
+
+    val database = Firebase.database
+    val databaseRef = database.getReference("images")
+
+    var imageData = ArrayList<String>()
+    var imageDescription = ArrayList<String>()
+    var data = ArrayList<ItemsViewModel>()
+
+    lateinit var auth: FirebaseAuth
+
+
+//    lateinit var data: ArrayList<ItemsViewModel>
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+
+        val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+
+
+        auth = Firebase.auth
+        val currentUser = auth.currentUser
+        auth.signInAnonymously()
+
+
+       // getRelationalDatabase()
+
+        val adapter = CustomAdapter(data)
+        recyclerView.adapter = adapter
+
+    }
+
+    fun getRelationalDatabase(){
+        val imageUri: String = ""
+        val imageText: String = ""
+        //need to iterate through the relational database, then pass
+
+        for (i in 1..3) {
+            val imageUri = databaseRef.child(i.toString()).child("uri").get().result
+            val imageText = databaseRef.child(i.toString()).child("text").get().result
+            imageData.add(imageUri.toString())
+            imageDescription.add(imageText.toString())
+            data.add(ItemsViewModel(imageUri.toString(), imageText.toString()))
+            Log.d("TAG", imageText.toString())
+            /*
+            databaseRef.child("images").addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                //This will loop through all items. Add variables to arrays or lists as required
+                var i = 0
+                for (snap in dataSnapshot.children) {
+                    val imageUri = dataSnapshot.child(i.toString()).child("uri").value.toString()
+                    val imageText = dataSnapshot.child(i.toString()).child("text").value.toString()
+                    imageData.add(imageUri)
+                    imageDescription.add(imageText)
+                    data.add(ItemsViewModel(imageUri, imageText))
+                    i++
+                }
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {}
+        })*/
+        }
+    }
+
+
+
+    fun createPostScreen(view: View){
+        val load = Intent(this, CreateActivity::class.java)
+        startActivity(load)
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+    val storage: FirebaseStorage = FirebaseStorage.getInstance()
+    var storageRef = storage.reference
+
+    val database = Firebase.database
+    val myRef = database.getReference("images")
 
     lateinit var data: ArrayList<ItemsViewModel>
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,20 +144,35 @@ class MainActivity : AppCompatActivity() {
         imageData.add(R.drawable.img_5854)
         imageData.add(R.drawable.img_5900)
 
+        //gs://snapcat-63f5b.appspot.com/images
+        /*
+        1.) Save any images with a number on it (still same issue - how to track*)
+
+        * try { save as img-1, img-2, etc. }
+
+
+        2.) try { download image i, i++ }
+
+        This will take a while, but heck it
+
+
+        Issue: the whole image int thing (why not Bitmap?)
+
+        */
+
         // the image with the count of view
         for (i in 1..14) {
-            //data.add(ItemsViewModel(imageData[i - 1], i.toString()))
-            data.add(ItemsViewModel(imageData[i - 1]))
+            data.add(ItemsViewModel(imageData[i - 1], i.toString()))
+            //data.add(ItemsViewModel(imageData[i - 1]))
         }
 
-        loadImages()
+        //loadImages()
 
         // This will pass the ArrayList to our Adapter
         val adapter = CustomAdapter(data)
 
         // Setting the Adapter with the recyclerview
         recyclerview.adapter = adapter
-
 
     }
 
@@ -82,7 +188,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-   fun loadImages(){
+   /*fun loadImages(){
        val imageRef = storageRef.child("images/").listAll()
        imageRef.addOnSuccessListener { res ->
            res.items.forEach { itemRef ->
@@ -96,7 +202,7 @@ class MainActivity : AppCompatActivity() {
        }.addOnFailureListener { error ->
            error.printStackTrace()
        }
-   }
+   }*/
 
 
 /*    fun getImages(){
@@ -163,4 +269,10 @@ class MainActivity : AppCompatActivity() {
             true
         }
     }
-}
+
+
+
+    fun readData(){
+        myRef.child("images")
+    }
+*/

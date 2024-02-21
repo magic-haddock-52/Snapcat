@@ -4,8 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
     android:orientation="vertical"
+    android:padding="24dp"
     tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/sightingsHeading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorPrimaryDark"
+        android:fontFamily="@font/caladea"
+        android:text="Recent Sightings..."
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:textSize="34sp"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,24 +27,13 @@
         android:orientation="vertical"
         android:padding="25dp">
 
-        <TextView
-            android:id="@+id/sightingsHeading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:fontFamily="@font/caladea"
-            android:text="Recent Sightings..."
-            android:textSize="34sp"
-            android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="508dp"
-
             app:layoutManager="LinearLayoutManager"
             tools:itemCount="5"
-
             tools:listitem="@layout/card_view_design" />
 
         <Button
@@ -39,6 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
+            android:fontFamily="@font/caladea"
             android:onClick="createPostScreen"
             android:text="Make New Post" />
 

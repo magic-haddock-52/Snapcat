@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
+    <color name="colorPrimary">#5E5E5E</color> <!-- #6200EE    #7E7E7E -->
+    <color name="colorPrimaryDark">#B3B3B5</color>
+    <!--#3700B3 -->
+    <color name="colorAccent">#03DAC5</color> <!-- #03DAC5 -->
+
+    <color name="backgroundColor">#B3B3B5</color>
+
+    <color name="testColor">#FFF223</color>
+
+    <!-- #000000 #EEEEEE #1C1C1C -->
+
 </resources>

@@ -7,6 +7,13 @@
 
     <color name="backgroundColor">#FF9859</color>
 
+
+    <color name="uniRed">#EF3125</color>
+    <color name="uniPurple">#5F0C68</color>
+
+    <!-- Red: #ef3125, Purple: #5f0c68 -->
+
+
     <!--
     #B3B3B5
     #FFBF00

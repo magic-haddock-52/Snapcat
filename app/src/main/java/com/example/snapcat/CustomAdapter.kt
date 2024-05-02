@@ -21,7 +21,11 @@ class CustomAdapter(private val modelList: List<ItemsViewModel>)
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val ivm = modelList[position]
 
-        holder.imageView.setImageResource(ivm.image)
+        Picasso.get()
+            .load(ivm.image)
+            .into(holder.imageView)
+
+        //holder.imageView.setImageResource(ivm.image)
 
         holder.textView.text = ivm.text
     }

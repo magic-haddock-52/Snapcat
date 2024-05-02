@@ -24,13 +24,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="25dp">
+        android:paddingHorizontal="25dp"
+        android:paddingTop="24dp"
+        android:paddingBottom="16dp">
 
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="508dp"
+            android:layout_height="520dp"
             app:layoutManager="LinearLayoutManager"
             tools:itemCount="5"
             tools:listitem="@layout/card_view_design" />
@@ -41,6 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
+            android:layout_marginBottom="8dp"
             android:fontFamily="@font/caladea"
             android:onClick="createPostScreen"
             android:text="@string/createPostButton" />

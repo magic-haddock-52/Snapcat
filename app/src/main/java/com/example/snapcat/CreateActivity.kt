@@ -12,6 +12,7 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.Firebase
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.database
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
@@ -22,7 +23,7 @@ class CreateActivity : AppCompatActivity() {
     val storage: FirebaseStorage = FirebaseStorage.getInstance()
     var storageRef = storage.getReference()
 
-    val database = Firebase.database
+    val database = FirebaseDatabase.getInstance()
     val databaseRef = database.getReference("images")
 
 
@@ -128,8 +129,10 @@ class CreateActivity : AppCompatActivity() {
             progressDialog.show()
 
             // Defining the child of storageReference
+            val randomUID = UUID.randomUUID().toString()
+            val info = "test string"
             val ref: StorageReference = storageRef
-                .child("images/" + UUID.randomUUID().toString())
+                .child("images/" + randomUID)
                 //need to change this to an incremental string (number)
 
 
@@ -159,6 +162,9 @@ class CreateActivity : AppCompatActivity() {
                     progressDialog.setMessage("Uploaded " + progress.toInt() + "%"
                     )
                 }
+
+            database.reference.child("images").child(randomUID).child("uid").setValue("gs://snapcat-63f5b.appspot.com/images/" + randomUID)
+            database.reference.child("images").child(randomUID).child("info").setValue(info)
         }
     }
 }

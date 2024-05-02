@@ -6,6 +6,7 @@
     android:layout_height="300dp"
     android:background="@drawable/rounded_corners_ui"
     android:layout_margin="10dp"
+    android:layout_marginBottom="24dp"
     android:onClick="onPopupClick"
     app:cardElevation="6dp">
 
@@ -18,14 +19,17 @@
 
         <ImageView
             android:id="@+id/imageView"
+            android:layout_marginVertical="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
-            android:layout_height="100dp"
+            android:layout_height="50dp"
             android:fontFamily="@font/caladea"
+            android:layout_gravity="center"
+            android:gravity="center|top"
             android:text="Item"
             android:textSize="20sp"
             android:textStyle="bold" />

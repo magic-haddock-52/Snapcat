@@ -25,6 +25,7 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="100dp"
+            android:fontFamily="@font/caladea"
             android:text="Item"
             android:textSize="20sp"
             android:textStyle="bold" />

@@ -14,6 +14,8 @@
     <!-- Red: #ef3125, Purple: #5f0c68 -->
 
 
+    <color name="headingColor">#FFFFFF</color>
+
     <!--
     #B3B3B5
     #FFBF00

@@ -15,8 +15,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/caladea"
-        android:text="Recent Sightings..."
-        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:text="@string/viewHeading"
+        android:textColor="@color/headingColor"
         android:textSize="34sp"
         android:textStyle="bold" />
 
@@ -43,7 +43,7 @@
             android:layout_marginTop="20dp"
             android:fontFamily="@font/caladea"
             android:onClick="createPostScreen"
-            android:text="Make New Post" />
+            android:text="@string/createPostButton" />
 
     </LinearLayout>
 </LinearLayout>

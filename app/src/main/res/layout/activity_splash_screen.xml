@@ -32,7 +32,7 @@
         android:layout_marginBottom="8dp"
         android:layout_gravity="center"
         android:src="@drawable/catsnap_logo"
-        android:contentDescription="TODO" />
+        android:contentDescription="@string/logoAltDesc" />
 
     <TextView
         android:id="@+id/taglineText"

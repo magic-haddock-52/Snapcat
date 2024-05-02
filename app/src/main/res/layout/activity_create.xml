@@ -21,8 +21,8 @@
             android:layout_marginBottom="16dp"
             android:padding="24dp"
             android:fontFamily="@font/caladea"
-            android:text="Report a Sighting"
-            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:text="@string/reportHeading"
+            android:textColor="@color/headingColor"
             android:textSize="34sp"
             android:textStyle="bold" />
 
@@ -41,7 +41,8 @@
                 android:id="@+id/postImage"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                app:srcCompat="@drawable/baseline_photo_camera_24" />
+                app:srcCompat="@drawable/baseline_photo_camera_24"
+                android:contentDescription="@string/reportImageAltDesc"/>
         </LinearLayout>
 
 
@@ -67,7 +68,7 @@
                 android:layout_marginHorizontal="8dp"
                 android:layout_marginBottom="48dp"
 
-                android:hint="Info:">
+                android:hint="@string/reportTextHint">
                 <!--
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="24dp"
@@ -102,7 +103,7 @@
                     android:layout_margin="8dp"
                     android:fontFamily="@font/caladea"
                     android:gravity="center"
-                    android:text="Gallery" />
+                    android:text="@string/galleryButton" />
 
                 <Button
                     android:id="@+id/cameraButton"
@@ -111,7 +112,7 @@
                     android:layout_margin="8dp"
                     android:fontFamily="@font/caladea"
                     android:gravity="center"
-                    android:text="Camera" />
+                    android:text="@string/cameraButton" />
             </LinearLayout>
 
             <Button
@@ -121,7 +122,7 @@
                 android:layout_margin="8dp"
                 android:fontFamily="@font/caladea"
                 android:gravity="center"
-                android:text="Upload"
+                android:text="@string/uploadButton"
                 android:visibility="invisible" />
 
 

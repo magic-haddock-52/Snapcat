@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Snapcat</string>
+    <string name="app_name">SnapCat</string>
 
     <string name="location_label">Location: </string>
     <string name="info_label">Info: </string>

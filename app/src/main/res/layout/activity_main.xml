@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundColor"
+    android:background="@drawable/background_gradient"
     android:orientation="vertical"
     android:padding="24dp"
     tools:context=".MainActivity">
@@ -14,7 +14,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:background="@color/colorPrimaryDark"
         android:fontFamily="@font/caladea"
         android:text="Recent Sightings..."
         android:textColor="@color/common_google_signin_btn_text_dark_default"

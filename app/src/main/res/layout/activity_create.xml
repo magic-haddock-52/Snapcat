@@ -9,11 +9,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/backgroundColor"
-        android:orientation="vertical"
-        android:padding="24dp">
-
-
+        android:background="@drawable/background_gradient"
+        android:orientation="vertical">
 
 
         <TextView
@@ -22,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
-            android:background="@color/colorPrimaryDark"
+            android:padding="24dp"
             android:fontFamily="@font/caladea"
             android:text="Report a Sighting"
             android:textColor="@color/common_google_signin_btn_text_dark_default"
@@ -36,6 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="32dp"
+            android:padding="0dp"
             android:background="@drawable/rounded_corners_ui"
             android:gravity="center"
             android:orientation="vertical">
@@ -56,6 +54,8 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="32dp"
+            android:layout_marginBottom="24dp"
+            android:paddingBottom="24dp"
             android:hint="Info:">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -68,17 +68,18 @@
 
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
+            android:layout_marginTop="0dp"
+            android:background="@drawable/rounded_top_corners_ui"
             android:gravity="center"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="0dp"
                 android:gravity="center"
                 android:orientation="horizontal">
 

@@ -3,7 +3,11 @@ package com.example.snapcat
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
+import android.view.LayoutInflater
 import android.view.View
+import android.widget.LinearLayout
+import android.widget.PopupWindow
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -24,7 +28,7 @@ class MainActivity : AppCompatActivity() {
     val database = Firebase.database
     val databaseRef = database.getReference("images")
 
-    var imageData = ArrayList<String>()
+    var imageData = ArrayList<Int>()
     var imageDescription = ArrayList<String>()
     var data = ArrayList<ItemsViewModel>()
 
@@ -47,12 +51,85 @@ class MainActivity : AppCompatActivity() {
 
 
        // getRelationalDatabase()
+        getRecyclerData()
 
         val adapter = CustomAdapter(data)
         recyclerView.adapter = adapter
 
     }
 
+
+
+
+    fun getRecyclerData(){
+
+        imageData.add(R.drawable.img_0090)
+        imageData.add(R.drawable.img_0091)
+        imageData.add(R.drawable.img_0092)
+
+        imageDescription.add("The cat's asleep in ISER.")
+        imageDescription.add("The cat is vibing on a radiator.")
+        imageDescription.add("Pebbles is asleep on a blue chair.")
+
+        for (i in 1..3) {
+            data.add(ItemsViewModel(imageData[i - 1], imageDescription[i - 1]))
+        }
+    }
+
+
+    fun onPopupClick(view: View) {
+        // inflate the layout of the popup window
+        // inflate the layout of the popup window
+        val inflater = getSystemService(LAYOUT_INFLATER_SERVICE) as LayoutInflater
+//        val popupView: View = inflater.inflate(R.layout.popup_window, null)
+        val popupView: View = inflater.inflate(R.layout.popup_window, null)
+
+        // create the popup window
+
+        // create the popup window
+        val width = LinearLayout.LayoutParams.WRAP_CONTENT
+        val height = LinearLayout.LayoutParams.WRAP_CONTENT
+        val focusable = true // lets taps outside the popup also dismiss it
+
+        val popupWindow = PopupWindow(popupView, width, height, focusable)
+
+
+
+        /*
+        val listener= View.OnClickListener { view ->
+            when (view.getId()) {
+                R.id. -> {
+                    // Do some work here
+                }
+            }
+        }
+        */
+
+        // show the popup window
+        // which view you pass in doesn't matter, it is only used for the window tolken
+
+        // show the popup window
+        // which view you pass in doesn't matter, it is only used for the window tolken
+        popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0)
+
+        // dismiss the popup window when touched
+
+        // dismiss the popup window when touched
+        popupView.setOnTouchListener { v, event ->
+            popupWindow.dismiss()
+            true
+        }
+    }
+
+
+
+
+
+
+
+
+
+    /*
     fun getRelationalDatabase(){
         val imageUri: String = ""
         val imageText: String = ""
@@ -84,6 +161,7 @@ class MainActivity : AppCompatActivity() {
         })*/
         }
     }
+    */
 
 
 

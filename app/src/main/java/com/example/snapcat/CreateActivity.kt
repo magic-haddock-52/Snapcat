@@ -9,11 +9,10 @@ import android.provider.MediaStore
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.Firebase
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.database
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import java.io.IOException
@@ -37,6 +36,7 @@ class CreateActivity : AppCompatActivity() {
     private lateinit var cameraButton: Button
     private lateinit var uploadButton: Button
     private lateinit var imageView: ImageView
+    private lateinit var postText: TextView
 
 
 
@@ -48,7 +48,7 @@ class CreateActivity : AppCompatActivity() {
         cameraButton = findViewById(R.id.cameraButton)
         uploadButton = findViewById(R.id.uploadButton)
         imageView = findViewById(R.id.postImage)
-
+        postText = findViewById(R.id.editText)
 
         chooseButton.setOnClickListener{
             selectImage()
@@ -122,22 +122,15 @@ class CreateActivity : AppCompatActivity() {
 
     fun uploadImage(){
         if (filePath != null) {
-
-            // Code for showing progressDialog while uploading
             val progressDialog = ProgressDialog(this)
             progressDialog.setTitle("Uploading...")
             progressDialog.show()
 
-            // Defining the child of storageReference
             val randomUID = UUID.randomUUID().toString()
-            val info = "test string"
             val ref: StorageReference = storageRef
                 .child("images/" + randomUID)
-                //need to change this to an incremental string (number)
 
 
-            // adding listeners on upload
-            // or failure of image
             ref.putFile(filePath)
                 .addOnSuccessListener { // Image uploaded successfully
                     // Dismiss dialog
@@ -164,7 +157,7 @@ class CreateActivity : AppCompatActivity() {
                 }
 
             database.reference.child("images").child(randomUID).child("uid").setValue("gs://snapcat-63f5b.appspot.com/images/" + randomUID)
-            database.reference.child("images").child(randomUID).child("info").setValue(info)
+            database.reference.child("images").child(randomUID).child("info").setValue(postText.text)
         }
     }
 }

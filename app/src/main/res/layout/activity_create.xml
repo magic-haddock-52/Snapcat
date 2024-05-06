@@ -43,6 +43,7 @@
                 android:layout_height="200dp"
                 app:srcCompat="@drawable/baseline_photo_camera_24"
                 android:contentDescription="@string/reportImageAltDesc"/>
+
         </LinearLayout>
 
 

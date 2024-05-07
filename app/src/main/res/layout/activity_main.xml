@@ -14,6 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
         android:fontFamily="@font/caladea"
         android:text="@string/viewHeading"
         android:textColor="@color/headingColor"
@@ -26,7 +27,7 @@
         android:orientation="vertical"
         android:paddingHorizontal="25dp"
         android:paddingTop="24dp"
-        android:paddingBottom="16dp">
+        android:paddingBottom="8dp">
 
 
         <androidx.recyclerview.widget.RecyclerView
@@ -43,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="0dp"
             android:fontFamily="@font/caladea"
             android:onClick="createPostScreen"
             android:text="@string/createPostButton" />
